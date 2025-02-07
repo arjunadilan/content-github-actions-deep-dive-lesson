@@ -40,7 +40,7 @@ jobs:
             cd function
             zip -r ../${{ github.sha }}.zip .
       - name: Archive artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: zipped-bundle
           path: ${{ github.sha }}.zip
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create release
-        uses: actions/create-release@v4
+        uses: actions/create_release@v4
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
